@@ -3,8 +3,8 @@
 import litellm
 
 PROVIDER_MODELS = {
-    "cheap": "openrouter/google/gemma-3-27b-it",
-    "fast": "cerebras/llama3.1-8b",
+    "cheap": "together_ai/meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "fast": "groq/llama-3.1-8b-instant",
 }
 
 
