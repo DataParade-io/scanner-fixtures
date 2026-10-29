@@ -27,5 +27,7 @@ Applications often call a vendor's REST API directly with an HTTP client instead
 | `typescript/src/crmClient.ts` | `axios.create({ baseURL })`, relative paths on the instance | HubSpot |
 | `typescript/src/notifyOps.ts` + `settings.ts` | `fetch` to a webhook URL exported by another module, with an env override | Slack |
 | `typescript/src/ordersClient.ts` | `axios.create` with a base URL only from build-time env | Unknown outbound HTTP |
+| `typescript/src/api/profile.ts` + `lib/http.ts` | Shared axios instance created in one module (env-only base) and used from another | Unknown outbound HTTP |
+| `typescript/src/api/agentChat.ts` | Default base on a `*.run.app` host: the team's own service on Google Cloud Run, not a vendor called "run" | Own service on Google Cloud Run |
 
 `python/http_helpers.py` is a shared wrapper around httpx. It sends data nowhere by itself.
