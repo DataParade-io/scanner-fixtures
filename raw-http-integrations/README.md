@@ -19,5 +19,6 @@ Applications often call a vendor's REST API directly with an HTTP client instead
 | `python/cross_file/store_agent.py` + `shopify_store.py` | MCP URL `https://{domain}/api/mcp` built by a method in another module, passed to Google ADK | Shopify Storefront MCP |
 | `python/kwargs_builders/llm_kwargs.py` + `config.py` | LiteLLM `model` and `api_base` assembled in a helper dict and unpacked with `**kwargs`; Google ADK `LiteLlm(model=...)`; defaults wrapped in a validator call | OpenRouter, Cerebras |
 | `python/kwargs_builders/store_tools.py` | MCP URL passed through a helper parameter into a dict, then `StreamableHTTPServerParams(**params)` | Shopify Storefront MCP |
+| `python/kwargs_passthrough/triage.py` + `providers.py` + `llm_client.py` | A provider-switch helper returns different kwargs per branch; another module unpacks it into a wrapper that forwards `**kwargs` to LiteLLM | OpenRouter, Cerebras |
 
 `python/http_helpers.py` is a shared wrapper around httpx. It sends data nowhere by itself.
