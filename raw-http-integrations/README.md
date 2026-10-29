@@ -20,5 +20,12 @@ Applications often call a vendor's REST API directly with an HTTP client instead
 | `python/kwargs_builders/llm_kwargs.py` + `config.py` | LiteLLM `model` and `api_base` assembled in a helper dict and unpacked with `**kwargs`; Google ADK `LiteLlm(model=...)`; defaults wrapped in a validator call | OpenRouter, Cerebras |
 | `python/kwargs_builders/store_tools.py` | MCP URL passed through a helper parameter into a dict, then `StreamableHTTPServerParams(**params)` | Shopify Storefront MCP |
 | `python/kwargs_passthrough/triage.py` + `providers.py` + `llm_client.py` | A provider-switch helper returns different kwargs per branch; another module unpacks it into a wrapper that forwards `**kwargs` to LiteLLM | OpenRouter, Cerebras |
+| `python/sdk_and_names/workspace_mail.py` | Google API client (`googleapiclient`) imported inside functions; `build("gmail")`, `build("drive")` | Gmail, Google Drive |
+| `python/sdk_and_names/research_tools.py` | Raw httpx calls to hosts whose vendor name is not the domain | Perplexity, Firecrawl |
+| `typescript/src/chatProxy.ts` | `fetch` with a literal URL in an Express route | Mistral AI |
+| `typescript/src/recordsApi.ts` | axios with a template literal on a parameter whose default is a module constant | Airtable |
+| `typescript/src/crmClient.ts` | `axios.create({ baseURL })`, relative paths on the instance | HubSpot |
+| `typescript/src/notifyOps.ts` + `settings.ts` | `fetch` to a webhook URL exported by another module, with an env override | Slack |
+| `typescript/src/ordersClient.ts` | `axios.create` with a base URL only from build-time env | Unknown outbound HTTP |
 
 `python/http_helpers.py` is a shared wrapper around httpx. It sends data nowhere by itself.
